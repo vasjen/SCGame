@@ -1,0 +1,41 @@
+{
+  "Files": [
+    {
+      "Id": "/Users/vasjen/SCGame/wwwroot/index.html",
+      "PackagePath": "staticwebassets/index.html"
+    },
+    {
+      "Id": "/Users/vasjen/SCGame/wwwroot/signalr.js",
+      "PackagePath": "staticwebassets/signalr.js"
+    },
+    {
+      "Id": "/Users/vasjen/SCGame/wwwroot/signalr.js.map",
+      "PackagePath": "staticwebassets/signalr.js.map"
+    },
+    {
+      "Id": "/Users/vasjen/SCGame/wwwroot/signalr.min.js",
+      "PackagePath": "staticwebassets/signalr.min.js"
+    },
+    {
+      "Id": "/Users/vasjen/SCGame/wwwroot/signalr.min.js.map",
+      "PackagePath": "staticwebassets/signalr.min.js.map"
+    },
+    {
+      "Id": "obj/Debug/net7.0/staticwebassets/msbuild.SCGame.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj/Debug/net7.0/staticwebassets/msbuild.build.SCGame.props",
+      "PackagePath": "build\\SCGame.props"
+    },
+    {
+      "Id": "obj/Debug/net7.0/staticwebassets/msbuild.buildMultiTargeting.SCGame.props",
+      "PackagePath": "buildMultiTargeting\\SCGame.props"
+    },
+    {
+      "Id": "obj/Debug/net7.0/staticwebassets/msbuild.buildTransitive.SCGame.props",
+      "PackagePath": "buildTransitive\\SCGame.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
