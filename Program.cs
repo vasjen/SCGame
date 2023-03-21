@@ -1,4 +1,5 @@
 
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
@@ -20,8 +21,23 @@ builder.Services.AddSwaggerGen(options =>
             Title = "Swagger SCGame Documentation",
             Version = "v1",
             Description = "API Documentation for the TicTakToe game",
+            Contact = new OpenApiContact
+            {
+                Name = "Vasilii Mukhin",
+                Email = "vasjenm@gmail.com"
+            },
+            Extensions = new Dictionary<string, IOpenApiExtension>
+            {
+              {"x-logo", new OpenApiObject
+                {
+                   {"url", new OpenApiString($"{AppDomain.CurrentDomain.BaseDirectory}/logo.png")},
+                   { "altText", new OpenApiString("TicTak logo")}
+                }
+              }
+            }
            
         });
+    options.EnableAnnotations();
 });
 builder.Services.AddDbContext<GameDbConnection>();
 builder.Services.AddIdentityCore<IdentityUser>(options => {
@@ -74,6 +90,7 @@ if (app.Environment.IsDevelopment())
         options.SpecUrl = "/swagger/v1/swagger.json";
     });
 }
+app.UseStaticFiles();
 app.UseRouting();
 app.UseHttpsRedirection();
 app.UseAuthentication();

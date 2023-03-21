@@ -2,6 +2,7 @@ namespace SCGame.Controllers;
 
 [ApiController]
 [Route("[controller]")]
+[SwaggerTag("Controller which responsive for user methods - creating,finding, authentication")]
 public class UserController : ControllerBase
 {
     
@@ -18,6 +19,11 @@ public class UserController : ControllerBase
    
     
     [HttpGet("GetUser")]
+    [SwaggerOperation(
+    Summary = "Find user",
+    Description = "This endpoint will return user's data if will be found",
+    OperationId = "Get")]
+    [SwaggerResponse(200,"User data",typeof(User))]
     public async Task<ActionResult<User>> GetUserAsync(string userName)
     {
         var user = await _userManager.FindByNameAsync(userName);
@@ -28,6 +34,10 @@ public class UserController : ControllerBase
         return new User {UserName = user.UserName, Email = user.Email};
     }
      [HttpPost("Create")]
+     [SwaggerOperation(
+    Summary = "Create new user",
+    Description = "This endpoint will create a new user and return user's data",
+    OperationId = "Post")]
     public async Task<ActionResult> CreateAsync(User user)
     {
         if (!ModelState.IsValid)
@@ -50,6 +60,11 @@ public class UserController : ControllerBase
         return CreatedAtAction("GetUser", new { username = user.UserName }, user);
     }
     [HttpPost("BearerToken")]
+    [SwaggerOperation(
+    Summary = "Get JWT Token",
+    Description = "This endpoint will return JWT token for authorized user",
+    OperationId = "Post")]
+    [SwaggerResponse(200,"JWT Token",type: typeof(AuthenticationResponse))]
     public async Task<ActionResult<AuthenticationResponse>> CreateBearerToken(AuthenticationRequest request)
     {
         if (!ModelState.IsValid)

@@ -1,26 +1,29 @@
 
+
 namespace SCGame.Controllers;
 
 [ApiController]
-
+[SwaggerTag("Controller which responsive for game process - get,create,move")]
 [Route("[controller]")]
 public class GameController : ControllerBase
 {
    
     private readonly GameDbConnection _context;
-  //  private readonly IPlayRoomHub _hubContext;
     private readonly IGameService _gameMaster;
     private readonly ITokenCreationService _jwtService;
 
     public GameController(GameDbConnection context, IGameService gameMaster, ITokenCreationService jwtService)
     {
         _context = context;
-      //  _hubContext = hubContext;
         _gameMaster = gameMaster;
         _jwtService = jwtService;
     }
 
     [HttpGet("Get")]
+    [SwaggerOperation(
+    Summary = "Get five last game",
+    Description = "This endpoint will return 5 last games",
+    OperationId = "Get")]
     public async Task<IEnumerable<Game?>?> GetFileLastGamesAsync()
     {
 
@@ -29,12 +32,16 @@ public class GameController : ControllerBase
                     .Include(p => p.Board)
                         .ThenInclude(p => p.Fields)
                     .OrderByDescending(p => p.GameId)
-                    .Take(15)
+                    .Take(5)
                     .ToListAsync();
     }
-    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+    [Authorize]
     
     [HttpPost("Create")]
+    [SwaggerOperation(
+    Summary = "Create new game",
+    Description = "This endpoint will return a new game",
+    OperationId = "Post")]
     public async Task<IActionResult> CreateGameAsync()
     {
         var user = _jwtService.GetUserFromToken(Request.Headers["Authorization"]);
@@ -62,6 +69,10 @@ public class GameController : ControllerBase
         return Ok(newGame);
     }
     [HttpGet("{id}/Get")]
+    [SwaggerOperation(
+    Summary = "Get game",
+    Description = "This endpoint will return selected game",
+    OperationId = "Get")]
     public async Task<Game?> GetAsync(int id)
     {
 
@@ -74,6 +85,11 @@ public class GameController : ControllerBase
     }
     [Authorize]
     [HttpPut("{id}/Move")]
+    [SwaggerOperation(
+    Summary = "Get move in selected game",
+    Description = "This endpoint will return game after make move",
+    OperationId = "Put")]
+    
     public async Task<IActionResult?> MoveAsync(int id, int xPos, int yPos)
     {
         if (!ModelState.IsValid)
@@ -122,9 +138,6 @@ public class GameController : ControllerBase
         } 
         
         await _gameMaster.Move(game,xPos,yPos);
-      //  InputMessage iMessage = new (game,$"{game.GameId}");
-      //  Player player = new Player (user.Value,user.Key);
-    //    await _hubContext.SendMessage(iMessage,player);
    
         return Ok(game);
 

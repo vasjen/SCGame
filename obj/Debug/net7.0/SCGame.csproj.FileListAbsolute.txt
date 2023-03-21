@@ -83,3 +83,10 @@
 /Users/vasjen/SCGame/bin/Debug/net7.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
 /Users/vasjen/SCGame/bin/Debug/net7.0/Swashbuckle.AspNetCore.ReDoc.dll
 /Users/vasjen/SCGame/bin/Debug/net7.0/SCGame.staticwebassets.runtime.json
+/Users/vasjen/SCGame/bin/Debug/net7.0/swagger.json
+/Users/vasjen/SCGame/bin/Debug/net7.0/Microsoft.AspNetCore.JsonPatch.dll
+/Users/vasjen/SCGame/bin/Debug/net7.0/Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+/Users/vasjen/SCGame/bin/Debug/net7.0/Newtonsoft.Json.dll
+/Users/vasjen/SCGame/bin/Debug/net7.0/Newtonsoft.Json.Bson.dll
+/Users/vasjen/SCGame/bin/Debug/net7.0/Swashbuckle.AspNetCore.Annotations.dll
+/Users/vasjen/SCGame/bin/Debug/net7.0/Swashbuckle.AspNetCore.Newtonsoft.dll
