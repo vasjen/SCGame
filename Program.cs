@@ -74,7 +74,6 @@ if (app.Environment.IsDevelopment())
         options.SpecUrl = "/swagger/v1/swagger.json";
     });
 }
-app.UseStaticFiles();
 app.UseRouting();
 app.UseHttpsRedirection();
 app.UseAuthentication();
