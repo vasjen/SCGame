@@ -3,7 +3,15 @@
   "info": {
     "title": "Swagger SCGame Documentation",
     "description": "API Documentation for the TicTakToe game",
-    "version": "v1"
+    "contact": {
+      "name": "Vasilii Mukhin",
+      "email": "vasjenm@gmail.com"
+    },
+    "version": "v1",
+    "x-logo": {
+      "url": "/logo.png",
+      "altText": "TicTak logo"
+    }
   },
   "paths": {
     "/Game/Get": {
@@ -11,6 +19,9 @@
         "tags": [
           "Game"
         ],
+        "summary": "Get five last game",
+        "description": "This endpoint will return 5 last games",
+        "operationId": "Get",
         "responses": {
           "200": {
             "description": "Success",
@@ -49,6 +60,9 @@
         "tags": [
           "Game"
         ],
+        "summary": "Create new game",
+        "description": "This endpoint will return a new game",
+        "operationId": "Post",
         "responses": {
           "200": {
             "description": "Success"
@@ -61,6 +75,9 @@
         "tags": [
           "Game"
         ],
+        "summary": "Get game",
+        "description": "This endpoint will return selected game",
+        "operationId": "Get",
         "parameters": [
           {
             "name": "id",
@@ -102,6 +119,9 @@
         "tags": [
           "Game"
         ],
+        "summary": "Get move in selected game",
+        "description": "This endpoint will return game after make move",
+        "operationId": "Put",
         "parameters": [
           {
             "name": "id",
@@ -144,6 +164,9 @@
         "tags": [
           "Invite"
         ],
+        "summary": "Create invite",
+        "description": "This endpoint will return a new invite for the selected game",
+        "operationId": "Post",
         "parameters": [
           {
             "name": "id",
@@ -157,7 +180,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "Invite is created",
             "content": {
               "text/plain": {
                 "schema": {
@@ -184,6 +207,9 @@
         "tags": [
           "Invite"
         ],
+        "summary": "Send invite",
+        "description": "This endpoint will send a selected invite to user",
+        "operationId": "Put",
         "parameters": [
           {
             "name": "id",
@@ -216,6 +242,9 @@
         "tags": [
           "Invite"
         ],
+        "summary": "Accept income inviting",
+        "description": "This endpoint will return received invite and start the game",
+        "operationId": "Put",
         "parameters": [
           {
             "name": "id",
@@ -230,7 +259,24 @@
         ],
         "responses": {
           "200": {
-            "description": "Success"
+            "description": "Invite accepted, the game is started",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Invite"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Invite"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Invite"
+                }
+              }
+            }
           }
         }
       }
@@ -240,6 +286,9 @@
         "tags": [
           "Invite"
         ],
+        "summary": "Reject invite",
+        "description": "This endpoint will decline a received invite and delete him",
+        "operationId": "Delete",
         "parameters": [
           {
             "name": "id",
@@ -254,7 +303,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Success"
+            "description": "Invite #{id} was declined and removed from database"
           }
         }
       }
@@ -264,6 +313,9 @@
         "tags": [
           "User"
         ],
+        "summary": "Find user",
+        "description": "This endpoint will return user's data if will be found",
+        "operationId": "Get",
         "parameters": [
           {
             "name": "userName",
@@ -276,7 +328,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "User data",
             "content": {
               "text/plain": {
                 "schema": {
@@ -303,6 +355,9 @@
         "tags": [
           "User"
         ],
+        "summary": "Create new user",
+        "description": "This endpoint will create a new user and return user's data",
+        "operationId": "Post",
         "requestBody": {
           "content": {
             "application/json": {
@@ -334,6 +389,9 @@
         "tags": [
           "User"
         ],
+        "summary": "Get JWT Token",
+        "description": "This endpoint will return JWT token for authorized user",
+        "operationId": "Post",
         "requestBody": {
           "content": {
             "application/json": {
@@ -355,7 +413,7 @@
         },
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "JWT Token",
             "content": {
               "text/plain": {
                 "schema": {
@@ -564,5 +622,19 @@
         "additionalProperties": false
       }
     }
-  }
+  },
+  "tags": [
+    {
+      "name": "Game",
+      "description": "Controller which responsive for game process - get,create,move"
+    },
+    {
+      "name": "Invite",
+      "description": "Controller which responsive for inviting mechanism for selected game - creating,sending, accepting or declining"
+    },
+    {
+      "name": "User",
+      "description": "Controller which responsive for user methods - creating,finding, authentication"
+    }
+  ]
 }
