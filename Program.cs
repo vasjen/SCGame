@@ -30,7 +30,7 @@ builder.Services.AddSwaggerGen(options =>
             {
               {"x-logo", new OpenApiObject
                 {
-                   {"url", new OpenApiString($"{AppDomain.CurrentDomain.BaseDirectory}/logo.png")},
+                   {"url", new OpenApiString("~/logo.png")},
                    { "altText", new OpenApiString("TicTak logo")}
                 }
               }
