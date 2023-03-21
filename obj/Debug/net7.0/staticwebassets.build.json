@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "FqBAXINDY+8imyd9iXql3mHNN+glJwD7ZvGfQ+gLVJA=",
+  "Hash": "ECp3b6rKJiT/1/VZsZHu7sCVBLHs4PeRNPzh39bfP40=",
   "Source": "SCGame",
   "BasePath": "_content/SCGame",
   "Mode": "Default",
@@ -32,6 +32,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/index.html"
+    },
+    {
+      "Identity": "/Users/vasjen/SCGame/wwwroot/logo.png",
+      "SourceId": "SCGame",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/vasjen/SCGame/wwwroot/",
+      "BasePath": "_content/SCGame",
+      "RelativePath": "logo.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/logo.png"
     }
   ]
 }
